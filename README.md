@@ -1,4 +1,4 @@
 # github-app
 
 
-https://github.com/KarloQuilantang/github-app.git
+https://github.com/KarloQuilantang/github-app
