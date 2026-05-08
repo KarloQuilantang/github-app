@@ -1,27 +1,43 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-    <meta charset="utf-8">  
+    <head>
+    <meta charset="utf-8">
     <title>Github App</title>
     <script src = "https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class ="flex flex-col gap-4">
-    <select name = "language" id = "language" class="p-2 border border-gray-300 rounded">
-        <option value="">Select a programming language</option>
-        <option value="javascript">JavaScript</option>
-        <option value="python">Python</option>
-        <option value="java">Java</option>
-        <option value="cpp">C++</option>
-    </select>
-    
-    <button onclick = "fetchData( )" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Find repository</button>
-    </div>
-    <div class = "hidden">
-        <a href="#" id="repo-link" target="_blank">View Repository</a>
-        <p class = "repository"></p>
-    </div>
-    <script src = "script.js"></script>
-</body>
+    </head>
+
+    <body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
+
+        <div class ="flex flex-col w-full max-w-md">
+        <div class ="flex flex-col gap-4 w-full max-w-md">
+
+            <select name = "language" id = "language" class="p-2 border border-gray-300 rounded" onchange="fetchData()">
+                <option value="">Select a programming language</option>
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+                <option value="cpp">C++</option>
+            </select>
+        </div>
+        <!-- State Containers -->
+            <div id = "status-container">
+                <div id="load-spinner" class="hidden flex flex-col items-center justify-center p-10">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                    <p class="mt-4 text-gray-600 font-medium">Hunting for code...</p>
+                </div>
+                <p id="error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4">
+                    Something went wrong. Please try again.
+                </p>
+            </div>
+
+        <!-- Success Display -->
+            <!-- Success Display -->
+        <div id="repo-card" class="hidden bg-white shadow-lg rounded-xl p-6 border border-gray-200 max-w-md mx-auto mt-6">
+            <!-- JavaScript will fill this entire space, including the button -->
+        </div>
+        </div>
+        <script src = "script.js"></script>
+    </body>
 
 </html>
